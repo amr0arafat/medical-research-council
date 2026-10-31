@@ -90,6 +90,21 @@ For parallel seats, turn on multi-agent support in `~/.codex/config.toml`:
 multi_agent = true
 ```
 
+### Gemini CLI troubleshooting
+
+- **`Template validation failed: Missing required input parameters: ...`** when the seats start.
+  Gemini copies every installed skill's description into each sub-agent's system prompt and
+  treats `${...}` as a template variable. Any skill in `~/.gemini/skills` or `~/.agents/skills`
+  whose description contains `${SOMETHING}` (Claude plugin-development skills often mention
+  `${CLAUDE_PLUGIN_ROOT}`) breaks every Gemini sub-agent. Find them with
+  `grep -l '\${' ~/.agents/skills/*/SKILL.md ~/.gemini/skills/*/SKILL.md`, then reword those
+  descriptions or move those skills to `~/.claude/skills` only.
+- **429 quota errors on a free API key.** Every installed skill's description is sent with every
+  request, so a large skill folder can exceed the free tier's input-tokens-per-minute limit on
+  the first council call. Use `--quick`, trim the skills Gemini loads, or use a paid key.
+- **`IneligibleTierError` with "Sign in with Google".** Google no longer serves Gemini CLI to
+  personal Google-login accounts. Use a Gemini API key (`/auth` > Use Gemini API Key).
+
 ### Options
 
 `bash install.sh --all` installs for every runtime, `--link` symlinks instead of copying (handy
