@@ -7,7 +7,7 @@ Reviewer 2 does.
 
 Works in **Claude Code**, **Gemini CLI**, and **Codex**.
 
-> Status: private beta. Not yet validated end to end on every runtime.
+> Status: tested end to end in Claude Code. Gemini CLI and Codex are packaged and validated, but a full live council has not yet been confirmed on them. Feedback welcome.
 
 ## How it works
 
