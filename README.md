@@ -118,6 +118,15 @@ Each session is saved in `./council-sessions/YYYY-MM-DD-<slug>/` in your working
 `brief.md`, `evidence.md`, `round-1.md`, `round-2.md`, `scores.json`, `verdict.md`, `report.html`.
 That folder is git-ignored here because it may hold unpublished research.
 
+## Example
+
+[`examples/2026-10-31-sglt2i-ca-aki-pci/`](examples/2026-10-31-sglt2i-ca-aki-pci/) is a complete
+council on a hypothetical protocol: should a cardiology team run an RCT of dapagliflozin to prevent
+contrast-associated AKI after PCI, or a retrospective cohort first? It contains every file a session
+produces, including `report.html`. Highlights: the Evidence seat vetoed the RCT as written, and
+anonymous peer review caught a flaw that all five seats missed in Round 1 (starting an SGLT2
+inhibitor raises creatinine on its own, which would contaminate the AKI endpoint).
+
 ## Limits
 
 - This is a simulated review. It is not ethics, regulatory, legal, or statistical sign-off.

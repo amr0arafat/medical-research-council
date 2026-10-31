@@ -4,3 +4,4 @@ __pycache__/
 # Council output can contain unpublished research. Never commit it.
 council-sessions/
 scores-result.json
+!examples/**/scores-result.json

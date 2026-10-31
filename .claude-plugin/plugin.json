@@ -1,10 +1,21 @@
 {
   "name": "medical-research-council",
   "description": "A council of specialist AI reviewers that pressure-tests medical research topics, protocols, grants, manuscripts, and MedTech projects, with independent analysis, anonymous peer review, weighted scoring, and a safety and ethics veto.",
-  "version": "1.0.0",
-  "author": { "name": "Amr Arafat", "url": "https://github.com/amr0arafat" },
+  "version": "1.1.0",
+  "author": {
+    "name": "Amr Arafat",
+    "url": "https://github.com/amr0arafat"
+  },
   "homepage": "https://github.com/amr0arafat/medical-research-council",
   "repository": "https://github.com/amr0arafat/medical-research-council",
   "license": "MIT",
-  "keywords": ["medical-research", "clinical-research", "study-design", "grant-review", "peer-review", "council", "llm-council"]
+  "keywords": [
+    "medical-research",
+    "clinical-research",
+    "study-design",
+    "grant-review",
+    "peer-review",
+    "council",
+    "llm-council"
+  ]
 }

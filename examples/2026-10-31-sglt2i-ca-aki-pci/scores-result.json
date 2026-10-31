@@ -1,0 +1,72 @@
+{
+  "weights": {
+    "evidence": 20.0,
+    "methods": 30.0,
+    "ethics": 20.0,
+    "patient": 15.0,
+    "feasibility": 15.0
+  },
+  "options": {
+    "A": {
+      "label": "Single-centre double-blind RCT now",
+      "raw": 4.33,
+      "final": 4.0,
+      "vetoed_by": [
+        "evidence"
+      ],
+      "cap_fired": true,
+      "min_seat": 2.5,
+      "spread": 3.0,
+      "split": false,
+      "seat_scores": {
+        "evidence": 4.0,
+        "methods": 5.5,
+        "ethics": 4.5,
+        "patient": 4.0,
+        "feasibility": 2.5
+      },
+      "verdict": "NO-GO: REDESIGN REQUIRED"
+    },
+    "B": {
+      "label": "Retrospective cohort first",
+      "raw": 5.88,
+      "final": 5.88,
+      "vetoed_by": [],
+      "cap_fired": false,
+      "min_seat": 4.5,
+      "spread": 3.0,
+      "split": false,
+      "seat_scores": {
+        "evidence": 5.0,
+        "methods": 4.5,
+        "ethics": 7.5,
+        "patient": 6.5,
+        "feasibility": 7.0
+      },
+      "verdict": "MAJOR REVISION"
+    },
+    "C": {
+      "label": "Do not proceed",
+      "raw": 3.05,
+      "final": 3.05,
+      "vetoed_by": [],
+      "cap_fired": false,
+      "min_seat": 2.5,
+      "spread": 1.5,
+      "split": false,
+      "seat_scores": {
+        "evidence": 3.0,
+        "methods": 2.5,
+        "ethics": 4.0,
+        "patient": 3.0,
+        "feasibility": 3.0
+      },
+      "verdict": "NO-GO: REDESIGN REQUIRED"
+    }
+  },
+  "ranking": [
+    "B",
+    "A",
+    "C"
+  ]
+}

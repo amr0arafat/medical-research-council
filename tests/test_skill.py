@@ -174,5 +174,39 @@ class TestInstaller(unittest.TestCase):
         self.assertTrue((self.home / ".agents/skills/medical-research-council").is_symlink())
 
 
+class TestAnonymizeAndRender(unittest.TestCase):
+    EXAMPLE = ROOT / "examples" / "2026-10-31-sglt2i-ca-aki-pci"
+
+    def setUp(self):
+        self.tmp = Path(tempfile.mkdtemp())
+        for name in ("round-1.md", "round-2.md", "verdict.md", "scores.json", "evidence.md"):
+            shutil.copy(self.EXAMPLE / name, self.tmp / name)
+
+    def tearDown(self):
+        shutil.rmtree(self.tmp)
+
+    def test_anonymize_hides_seat_names(self):
+        r = run(sys.executable, str(SKILL / "scripts" / "anonymize.py"), str(self.tmp), "--seed", "1")
+        self.assertEqual(r.returncode, 0, r.stderr)
+        anon = (self.tmp / "round-2-anon.md").read_text()
+        self.assertEqual(len(re.findall(r"^## Response \d$", anon, re.M)), 5)
+        for seat in ("## Evidence", "## Methods", "## Ethics", "## Patient", "## Feasibility", "Chair notes"):
+            self.assertNotIn(seat, anon)
+        self.assertEqual(r.stdout.count("Response "), 5)
+
+    def test_example_scores_and_refs(self):
+        self.assertEqual(run(sys.executable, str(SCORE), str(self.tmp)).returncode, 0)
+        self.assertEqual(run(sys.executable, str(CHECK), str(self.tmp)).returncode, 0)
+
+    def test_render_report_is_self_contained(self):
+        run(sys.executable, str(SCORE), str(self.tmp))
+        r = run(sys.executable, str(SKILL / "scripts" / "render_report.py"), str(self.tmp))
+        self.assertEqual(r.returncode, 0, r.stderr)
+        page = (self.tmp / "report.html").read_text()
+        self.assertIn("MAJOR REVISION", page)
+        self.assertIn("veto cap fired", page)
+        self.assertNotRegex(page, r"<(script|link)[^>]+(src|href)=\"http")
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -1,7 +1,7 @@
 ---
 name: medical-research-council
 description: Use when a clinician, researcher, or medical faculty member wants a medical research topic, idea, study protocol, grant proposal, manuscript, or MedTech/digital-health/healthcare-AI project pressure-tested by a panel of specialist reviewers before committing time, money, or patients to it. Triggers - "medical council", "run the medical research council", "council this study", "roast this protocol", "pressure-test this research idea", "which of these research topics should I pursue", "is this grant fundable", "review my manuscript before submission", "ask the methodologist", or a real tradeoff in study design, endpoints, sample size, ethics/IRB, feasibility, funding, or publication strategy. NOT for diagnosing or treating an individual patient, simple factual lookups, or hospital administration decisions (use medical-business-council).
-version: 1.0.0
+version: 1.1.0
 author: Amr Arafat
 license: MIT
 argument-hint: "[topic or decision] [--type question|protocol|grant|manuscript|medtech] [--quick] [--seats a,b,c] | topics [idea 1; idea 2; ...] | ask <seat> [question] | rerun <session-folder>"
@@ -93,7 +93,7 @@ Save the cards verbatim to `round-1.md` under `## <Seat short name>`. Send a car
 
 ## Step 5: Round 2, anonymous peer review
 
-Shuffle the cards and relabel them Response A to E. Save the letter-to-seat map in `round-2.md` but never show it to reviewers. Spawn one reviewer per seat, in parallel, with the Round 2 prompt. Each reviewer names the strongest response, the most dangerous blind spot, what every response missed, and may revise its own seat's scores once with a reason.
+Run `python3 SKILL_DIR/scripts/anonymize.py <session-folder>`. It shuffles the Round 1 cards, numbers them Response 1 to 5 (numbers, so they never clash with options A, B, C), writes `round-2-anon.md` for the reviewers, and prints the number-to-seat map. Copy the map into `round-2.md`; never show it to reviewers. Spawn one reviewer per seat, in parallel, with the Round 2 prompt, telling each reviewer which number is its own card. Each reviewer names the strongest response, the most dangerous blind spot, what every response missed, and may revise its own seat's scores once with a reason.
 
 Quick mode: one reviewer sub-agent covers all three cards.
 
@@ -104,7 +104,7 @@ Save to `round-2.md`, then `## Chair notes`: who revised scores and why, which c
 1. Write `scores.json` from the final scores (format in `scoring.md`) and run `python3 SKILL_DIR/scripts/score.py <session-folder>`. It applies the weights and the veto cap, ranks options, and prints the verdict label. Do not do this arithmetic by hand.
 2. Write `verdict.md` from `report-template.md`.
 3. Run `python3 SKILL_DIR/scripts/check_refs.py <session-folder>`. Every PMID, NCT, and DOI in `verdict.md` and the round files must appear in `evidence.md`. Delete or relabel any that fail, then rerun until it passes. If Python is unavailable, do the same check by reading the files.
-4. Build `report.html` per `report-template.md` and open it.
+4. Run `python3 SKILL_DIR/scripts/render_report.py <session-folder>` to build `report.html`, then open it. If Python is unavailable, build it by hand per `report-template.md`.
 
 ## Step 7: Tell the user
 
@@ -132,4 +132,5 @@ Run the same protocol yourself, one seat at a time. In Round 1 write each card b
 - `references/round-prompts.md`: Round 1, Round 2, quick review, consult, and rerun prompts.
 - `references/scoring.md`: weights, veto cap, verdict labels, unanimity rule, `scores.json` format.
 - `references/report-template.md`: `verdict.md` and `report.html`.
-- `scripts/score.py`: weighted scores, veto cap, ranking. `scripts/check_refs.py`: reference verification. Both need only Python 3.8+, no packages.
+- `examples/` at the repository root: a complete test session.
+- `scripts/anonymize.py`: shuffles and numbers Round 1 cards for peer review. `scripts/score.py`: weighted scores, veto cap, ranking. `scripts/check_refs.py`: reference verification. `scripts/render_report.py`: the HTML report. Both need only Python 3.8+, no packages.

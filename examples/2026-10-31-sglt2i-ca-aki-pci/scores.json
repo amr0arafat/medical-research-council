@@ -1,0 +1,12 @@
+{
+  "type": "protocol",
+  "options": { "A": "Single-centre double-blind RCT now", "B": "Retrospective cohort first", "C": "Do not proceed" },
+  "weights": { "evidence": 20, "methods": 30, "ethics": 20, "patient": 15, "feasibility": 15 },
+  "seats": {
+    "evidence":    { "scores": { "A": 4.0, "B": 5.0, "C": 3.0 }, "vetoes": ["A"] },
+    "methods":     { "scores": { "A": 5.5, "B": 4.5, "C": 2.5 } },
+    "ethics":      { "scores": { "A": 4.5, "B": 7.5, "C": 4.0 }, "vetoes": [] },
+    "patient":     { "scores": { "A": 4.0, "B": 6.5, "C": 3.0 } },
+    "feasibility": { "scores": { "A": 2.5, "B": 7.0, "C": 3.0 } }
+  }
+}

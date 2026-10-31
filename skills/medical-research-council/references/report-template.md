@@ -56,6 +56,8 @@ Simulated specialist review, not ethics, regulatory, or statistical sign-off. Co
 
 ## report.html
 
+`scripts/render_report.py` builds this from `verdict.md`, `scores-result.json`, and the round files. The spec below is what it produces, and what to build by hand if Python is unavailable.
+
 One self-contained HTML file with inline CSS and no external requests, so it opens offline and can be emailed. Save it in the session folder and open it.
 
 Contents, top to bottom:

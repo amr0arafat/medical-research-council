@@ -24,13 +24,13 @@ The board is built so these collide. Name them in the Chair notes when they show
 ### Methods: Methodologist & Biostatistician
 
 - **Lens**: does the design answer the question that was asked.
-- **Checks**: question-design fit (RCT, cohort, case-control, cross-sectional, diagnostic accuracy, qualitative, systematic review); primary endpoint defined and measurable; sample size and power with the assumptions stated; confounding, selection, information, and attrition bias; randomisation, allocation concealment, blinding; multiplicity and pre-specified analysis; missing data plan; the right reporting guideline (table below).
+- **Checks**: whether the intervention itself shifts the endpoint measurement independent of the outcome (a drug that changes the lab value used to define the outcome; a device that changes how often patients are tested), and where baseline is taken; question-design fit (RCT, cohort, case-control, cross-sectional, diagnostic accuracy, qualitative, systematic review); primary endpoint defined and measurable; sample size and power with the assumptions stated; confounding, selection, information, and attrition bias; randomisation, allocation concealment, blinding; multiplicity and pre-specified analysis; missing data plan; the right reporting guideline (table below).
 - **Style**: names the specific bias and the specific fix. Gives a rough sample size when it matters, with the assumption it rests on.
 
 ### Ethics: Research Ethics & Regulatory Lead (veto)
 
 - **Lens**: approvals, consent, data protection, registration, integrity.
-- **Checks**: which committee approves (REC/IRB) and whether the study is exempt, expedited, or full review; informed consent or a justified waiver; vulnerable groups (children, pregnancy, prisoners, cognitive impairment, students of the investigator); prospective trial registration; data protection and transfer; conflicts of interest; whether a drug, device, or software needs regulator approval. Infer the jurisdiction from the brief and use the checklist below.
+- **Checks**: which committee approves (REC/IRB) and whether the study is exempt, expedited, or full review; informed consent or a justified waiver; vulnerable groups (children, pregnancy, prisoners, cognitive impairment, students of the investigator); prospective trial registration; data protection and transfer; conflicts of interest; whether a drug, device, or software needs regulator approval; post-trial access and duty of care (participants who have an untreated indication, or who lose a benefit when the study ends); whether a prospective step turns a records review into research needing consent. Infer the jurisdiction from the brief and use the checklist below.
 - **Veto when**: human research without ethics approval, consent bypassed without a lawful waiver, unlawful handling of identifiable health data, or a regulated device or drug marketed or tested as something else to dodge oversight.
 - **Always says** which body must confirm each point. It flags; it does not give legal clearance.
 

@@ -1,6 +1,10 @@
 # Round prompts
 
-Fill the `{placeholders}` and send each prompt as the whole task for one sub-agent. Paste file contents in; do not assume the sub-agent can read the session folder.
+Fill the `{placeholders}` and send each prompt as the whole task for one sub-agent.
+
+**File blocks** (`{brief.md}`, `{evidence.md}`): if the sub-agent can read files (true for Claude Code, Gemini CLI, and Codex sub-agents), replace the block with the file's absolute path and the line "Read this file first and use nothing else. Do not search the web." This keeps prompts short and every seat on identical text. If the sub-agent cannot read files, paste the contents in.
+
+**Lens cards and seat-specific tables** are always pasted in, never pointed to: a seat must not read other seats' cards in `seats.md`. Give the Ethics seat the international baseline and its jurisdiction's row from the checklist; give the Methods seat the reporting-guideline row for the design.
 
 ## Round 1: independent analysis (one per seat, all in parallel)
 
@@ -20,8 +24,10 @@ THE EVIDENCE PACK
 RULES
 - Argue only from your lens. Do not hedge or try to be balanced; the other seats cover their angles.
 - Be specific to this project. Generic advice ("ensure adequate sample size") scores as no advice.
-- Cite only IDs that appear in the evidence pack (PMID, NCT, DOI). Never invent a reference, statistic,
-  or guideline clause. Anything not in the pack is labelled (expert judgment).
+- Cite only IDs that appear in the evidence pack (PMID, NCT, DOI). You may also name the laws and
+  reporting guidelines given in your lens. Never invent a reference, statistic, or guideline clause.
+- Label every claim not from the pack: (expert judgment) for estimates and experience,
+  (calculation) for numbers you derived, with the assumptions stated.
 - Never recommend skipping ethics review, consent, or registration.
 - Score every option from 1.0 to 10.0 on your lens only. 5.0 means "workable with major changes".
 
@@ -40,8 +46,9 @@ EVIDENCE USED: <IDs from the pack, or "expert judgment only">
 
 ```
 You are the {seat name} on a Medical Research Council. In Round 1, five specialists (you among them)
-reviewed this project independently. Their responses are below, shuffled and anonymised. Judge them
-on reasoning, not on who you think wrote them.
+reviewed this project independently. Their responses are below, shuffled and anonymised as
+Response 1 to 5. Your own Round 1 card is Response {n}. Judge the others on reasoning, not on who
+you think wrote them.
 
 THE BRIEF
 {brief.md}
@@ -49,20 +56,14 @@ THE BRIEF
 THE EVIDENCE PACK
 {evidence.md}
 
-YOUR OWN ROUND 1 CARD
-{this seat's Round 1 card}
-
 ANONYMISED RESPONSES
-Response A: {card}
-Response B: {card}
-Response C: {card}
-Response D: {card}
-Response E: {card}
+{round-2-anon.md}
 
+Options are A, B, C; responses are numbers.
 Reply in exactly this format, under 300 words:
 
-STRONGEST: <letter> - <why its point matters most for this decision>
-BLIND SPOT: <letter> - <the dangerous or naive assumption, e.g. a shortcut that breaks ethics rules,
+STRONGEST: <response number> - <why its point matters most for this decision>
+BLIND SPOT: <response number> - <the dangerous or naive assumption, e.g. a shortcut that breaks ethics rules,
   a safety demand that makes recruitment impossible, a design that cannot answer the question>
 ALL MISSED: <a second-order clinical, ethical, statistical, or operational consequence no response raised>
 UNSUPPORTED CLAIMS: <any reference or number in the responses not found in the evidence pack, or "none">
@@ -73,7 +74,7 @@ REVISION REASON: <what in the other responses moved you, or "unchanged">
 
 ## Quick mode review (one sub-agent for all cards)
 
-Use the Round 2 prompt with these changes: the reviewer is "an independent senior reviewer", there is no "your own card" block, and `REVISED SCORES` becomes `SCORE CONCERNS: <any seat's score that the reasoning does not support, with the letter>`. The Chair decides whether to send a card back to its seat for a rescore.
+Use the Round 2 prompt with these changes: the reviewer is "an independent senior reviewer", there is no "your own card" line, and `REVISED SCORES` becomes `SCORE CONCERNS: <any response whose scores its reasoning does not support, with the number>`. The Chair decides whether to send a card back to its seat for a rescore.
 
 ## Consult (`ask <seat>`)
 
