@@ -1,0 +1,33 @@
+{
+  "veto_seats": ["evidence", "ethics"],
+  "on_call_default_weight": 15,
+  "boards": {
+    "question":   { "full": { "evidence": 25, "methods": 20, "ethics": 15, "patient": 15, "feasibility": 25 }, "quick": ["evidence", "ethics", "feasibility"] },
+    "protocol":   { "full": { "evidence": 20, "methods": 30, "ethics": 20, "patient": 15, "feasibility": 15 }, "quick": ["evidence", "ethics", "methods"] },
+    "grant":      { "full": { "evidence": 20, "methods": 25, "ethics": 10, "feasibility": 25, "outsider": 20 }, "quick": ["evidence", "ethics", "feasibility"] },
+    "manuscript": { "full": { "evidence": 20, "methods": 30, "ethics": 10, "editor": 30, "outsider": 10 }, "quick": ["evidence", "ethics", "editor"] },
+    "medtech":    { "full": { "evidence": 20, "ethics": 20, "patient": 20, "economist": 25, "informatics": 15 }, "quick": ["evidence", "ethics", "informatics"] }
+  },
+  "seats": [
+    { "key": "evidence", "name": "Clinical Evidence & Safety Officer", "short": "Evidence", "core": true, "veto": true,
+      "question": "Is there a real knowledge gap, and can this be done without harming participants or patients?" },
+    { "key": "methods", "name": "Methodologist & Biostatistician", "short": "Methods", "core": true, "veto": false,
+      "question": "Does the design actually answer the question, with enough power and little enough bias to believe the result?" },
+    { "key": "ethics", "name": "Research Ethics & Regulatory Lead", "short": "Ethics", "core": true, "veto": true,
+      "question": "Will an ethics committee and the regulator approve this, and is participant data protected?" },
+    { "key": "patient", "name": "Patient & Frontline Clinician Advocate", "short": "Patient", "core": true, "veto": false,
+      "question": "Will patients enrol and stay, will clinicians cooperate, and does the outcome matter to them?" },
+    { "key": "feasibility", "name": "Feasibility, Funding & Operations Lead", "short": "Feasibility", "core": true, "veto": false,
+      "question": "Can this team finish it on this budget, data infrastructure, and timeline?" },
+    { "key": "editor", "name": "Journal Editor & Peer Reviewer", "short": "Editor", "core": false, "veto": false,
+      "question": "Is it novel, publishable, and ready for the target journal, and what will Reviewer 2 say?" },
+    { "key": "economist", "name": "Health Economist & Payer Strategist", "short": "Economist", "core": false, "veto": false,
+      "question": "Who pays, from which budget, and is it cost-effective compared with current practice?" },
+    { "key": "informatics", "name": "Health Informatics & AI Lead", "short": "Informatics", "core": false, "veto": false,
+      "question": "Is the data fit for purpose, is the model validated the right way, and will it integrate with clinical systems?" },
+    { "key": "translational", "name": "Translational & Basic Scientist", "short": "Translational", "core": false, "veto": false,
+      "question": "Is the mechanism plausible, is the preclinical or biomarker evidence solid, and is the lab work doable?" },
+    { "key": "outsider", "name": "The Outsider", "short": "Outsider", "core": false, "veto": false,
+      "question": "Reading this cold, with no medical background, what is confusing, overclaimed, or unconvincing?" }
+  ]
+}

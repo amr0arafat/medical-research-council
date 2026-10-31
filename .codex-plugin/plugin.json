@@ -1,0 +1,25 @@
+{
+  "name": "medical-research-council",
+  "version": "1.0.0",
+  "description": "A council of specialist AI reviewers that pressure-tests medical research topics, protocols, grants, manuscripts, and MedTech projects.",
+  "author": { "name": "Amr Arafat", "url": "https://github.com/amr0arafat" },
+  "homepage": "https://github.com/amr0arafat/medical-research-council",
+  "repository": "https://github.com/amr0arafat/medical-research-council",
+  "license": "MIT",
+  "keywords": ["medical-research", "clinical-research", "study-design", "grant-review", "peer-review", "council"],
+  "skills": "./skills/",
+  "hooks": {},
+  "interface": {
+    "displayName": "Medical Research Council",
+    "shortDescription": "Specialist review board for medical research decisions",
+    "longDescription": "Runs a research topic, protocol, grant, manuscript, or MedTech project past five specialist reviewers who work independently, review each other anonymously, and are scored with a safety and ethics veto. Every reference in the verdict is checked against a literature search.",
+    "developerName": "Amr Arafat",
+    "category": "Research",
+    "capabilities": ["Interactive", "Read", "Write"],
+    "defaultPrompt": [
+      "Run the medical research council on my study idea.",
+      "Which of these research topics should I pursue first?"
+    ],
+    "websiteURL": "https://github.com/amr0arafat/medical-research-council"
+  }
+}

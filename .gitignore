@@ -1,0 +1,6 @@
+.DS_Store
+__pycache__/
+*.pyc
+# Council output can contain unpublished research. Never commit it.
+council-sessions/
+scores-result.json

@@ -1,0 +1,14 @@
+{
+  "name": "medical-research-council",
+  "description": "Marketplace for the Medical Research Council skill",
+  "owner": { "name": "Amr Arafat", "url": "https://github.com/amr0arafat" },
+  "plugins": [
+    {
+      "name": "medical-research-council",
+      "description": "A council of specialist AI reviewers that pressure-tests medical research topics, protocols, grants, manuscripts, and MedTech projects.",
+      "version": "1.0.0",
+      "source": "./",
+      "author": { "name": "Amr Arafat", "url": "https://github.com/amr0arafat" }
+    }
+  ]
+}
